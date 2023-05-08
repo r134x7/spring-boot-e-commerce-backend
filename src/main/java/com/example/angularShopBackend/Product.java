@@ -116,6 +116,10 @@ public record Product(String _id, String name, String description, String image,
             )
     );
 
+    public static List<Product> getProducts() {
+        return products;
+    }
+
     public static Product getProduct(String _id) {
             return products.stream().filter(elem -> elem._id().equals(_id)).findFirst().orElse(null);
     };
