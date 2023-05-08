@@ -5,7 +5,7 @@ import java.util.List;
 
 public record Product(String _id, String name, String description, String image, String category, Double price, Integer quantity) {
 
-    private static final List<Product> categories = Arrays.asList(
+    private static final List<Product> products = Arrays.asList(
             new Product(
                     "1",
                    "Tin of Cookies",
@@ -115,4 +115,8 @@ public record Product(String _id, String name, String description, String image,
                     600
             )
     );
+
+    public static Product getProduct(String _id) {
+            return products.stream().filter(elem -> elem._id().equals(_id)).findFirst().orElse(null);
+    };
 }
